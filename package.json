@@ -1,0 +1,20 @@
+{
+  "name": "filo-invisibile",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Il Filo Invisibile - telaio collettivo Pedalart",
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev --port 8889",
+    "db:generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "@netlify/database": "latest",
+    "drizzle-orm": "beta"
+  },
+  "devDependencies": {
+    "@netlify/functions": "latest",
+    "drizzle-kit": "beta",
+    "typescript": "^5.6.3"
+  }
+}
