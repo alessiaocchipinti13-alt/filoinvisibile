@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Filo Invisibile · Pedalart Pedalino</title>
+<meta name="description" content="Un telaio collettivo: quale filo invisibile ti lega tutte le tue radici? Installazione partecipata Pedalart, Pedalino.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ffffff'/%3E%3Crect x='1' y='1' width='30' height='30' fill='none' stroke='%23e00b2b' stroke-width='2'/%3E%3Cg stroke-width='1.6' fill='none'%3E%3Cpath d='M7 8C18 10 14 22 25 24' stroke='%23bd5733'/%3E%3Cpath d='M7 14C18 16 14 20 25 16' stroke='%232e6c8b'/%3E%3C/g%3E%3Ccircle cx='7' cy='11' r='3' fill='%23cf9a1c'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Karla:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="masthead__brand">
+    <span class="brand__mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4">
+        <circle cx="6" cy="18" r="3.4"/><circle cx="18" cy="18" r="3.4"/>
+        <path d="M6 18 11 8h4l2.8 10M9.5 8h5.5" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <span class="brand__text">Pedalart<span class="brand__sep">·</span>Pedalino</span>
+  </div>
+  <p class="masthead__meta">Telaio collettivo <span class="masthead__dot" aria-hidden="true"></span> <span id="liveState">in ascolto</span></p>
+</header>
+
+<main>
+  <section class="intro">
+    <h1 class="intro__title">
+      <span class="reveal" style="--d:0ms">Quale filo invisibile</span>
+      <span class="reveal intro__title--em" style="--d:90ms">ti lega tutte le tue radici?</span>
+    </h1>
+    <div class="intro__aside">
+      <p class="reveal" style="--d:180ms">Scegli la tua età, poi la radice che senti più tua. Il tuo filo resta teso sul telaio, accanto a quelli di chi è passato prima.</p>
+      <p class="intro__count reveal" style="--d:260ms">
+        <output id="counter" aria-live="polite">0</output>
+        <span>fili intrecciati</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="loom reveal" style="--d:340ms" aria-labelledby="loomLabel">
+    <h2 id="loomLabel" class="sr-only">Il telaio</h2>
+    <div class="loom__frame">
+      <canvas id="loom" role="img" aria-label="Telaio di fili che collegano i gruppi d'età alle radici scelte"></canvas>
+      <p class="loom__hint" id="loomHint">Sto srotolando i fili…</p>
+    </div>
+    <p class="sr-only" id="loomSummary" aria-live="polite"></p>
+    <noscript><p class="loom__noscript">Il telaio si intreccia con JavaScript attivo: abilitalo per vedere i fili e aggiungere il tuo.</p></noscript>
+
+    <div class="legend">
+      <span class="legend__label">Fasce d'età</span>
+      <ul class="legend__list" id="legendList"></ul>
+    </div>
+  </section>
+
+  <section class="compose" aria-labelledby="composeLabel">
+    <h2 class="compose__label" id="composeLabel">Tendi il tuo filo</h2>
+    <div class="compose__buttons">
+      <button type="button" class="age" data-age="Under 20" style="--thread:var(--t-yellow)"><span>Under 20</span></button>
+      <button type="button" class="age" data-age="20-35 anni" style="--thread:var(--t-blue)"><span>20—35 anni</span></button>
+      <button type="button" class="age" data-age="35-55 anni" style="--thread:var(--t-orange)"><span>35—55 anni</span></button>
+      <button type="button" class="age" data-age="Over 55" style="--thread:var(--t-green)"><span>Over 55</span></button>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <span>Pedalart</span><span class="colophon__rule" aria-hidden="true"></span><span>Pedalino</span>
+</footer>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__backdrop" data-close></div>
+  <div class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" tabindex="-1" id="sheetPanel">
+    <p class="sheet__eyebrow"><span id="sheetAgeDot" class="sheet__dot" aria-hidden="true"></span><span id="sheetAge">Under 20</span></p>
+    <h2 class="sheet__title" id="sheetTitle">Quale filo ti lega tutte le tue radici?</h2>
+    <div class="sheet__options" id="sheetOptions"></div>
+    <p class="sheet__error" id="sheetError" role="alert" hidden></p>
+    <button type="button" class="sheet__cancel" data-close>Annulla</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="/assets/board.js" type="module"></script>
+</body>
+</html>
